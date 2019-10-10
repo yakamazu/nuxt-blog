@@ -1,0 +1,18 @@
+{
+  "title": "テスト記事2",
+  "description": "テスト記事2です",
+  "tags": [
+    "タグ2"
+  ],
+  "category": "その他2",
+  "created_at": "2019-02-17 00:08:00",
+  "updated_at": "2019-02-17 00:00:00",
+  "bodyContent": "# 内容\niuiuiuiuiuiu\n\n## 内容２\noipopopopopopopopo\n\n## nayou\niuiowieowi3u4iortwj",
+  "bodyHtml": "<h1>内容</h1>\n<p>iuiuiuiuiuiu</p>\n<h2>内容２</h2>\n<p>oipopopopopopopopo</p>\n<h2>nayou</h2>\n<p>iuiowieowi3u4iortwj</p>\n",
+  "preview": "内容\niuiuiuiuiuiu\n\n内容２\noipopopopopopopopo\n\nnayou\niuiowieowi3u4iortwj",
+  "dir": "contents/json",
+  "base": "2019-10-02_test2.json",
+  "ext": ".json",
+  "sourceBase": "2019-10-02_test2.md",
+  "sourceExt": ".md"
+}

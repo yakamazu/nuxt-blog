@@ -1,0 +1,192 @@
+<template>
+<v-app>
+<v-container>
+<!-- ログイン時にはフォームとログアウトボタンを表示 -->
+  <div class="google-auth" v-if="user.uid" key="login">
+  
+  <v-card
+      max-width="650"
+      class="mx-auto"
+  >
+
+    <v-toolbar
+        color="cyan"
+        dark
+    >
+    <v-toolbar-title>ユーザー名: [{{ user.displayName }}]</v-toolbar-title>
+    <div class="flex-grow-1"></div>
+
+      <v-toolbar-items>
+        <v-btn depressed large color="success" @click="dialog = true">ログアウト</v-btn>
+      </v-toolbar-items>
+
+      <v-dialog
+        v-model="dialog"
+        max-width="290"
+      >
+        <v-card>
+          <v-card-title class="headline">ログアウトしますか？</v-card-title>
+  
+          <v-card-actions>
+            <div class="flex-grow-1"></div>
+  
+            <v-btn
+              color="green darken-1"
+              text
+              @click="logout"
+            >
+              はい
+            </v-btn>
+  
+            <v-btn
+              color="green darken-1"
+              text
+              @click="dialog = false"
+            >
+              いいえ
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-toolbar>
+
+    <v-list three-line>
+        <template v-for="(comment, index) in comments">
+  
+          <v-list-item
+          >
+            <v-list-item-avatar>
+              <v-img :src="comment.img"></v-img>
+            </v-list-item-avatar>
+  
+            <v-list-item-content>
+              <v-list-item-title>{{ comment.user }} : {{ comment.createdAt }}</v-list-item-title>
+              <v-list-item-subtitle>{{ comment.content }}</v-list-item-subtitle>
+            </v-list-item-content>
+
+            <v-list-item-icon v-if="comment.email === user.email">
+              <v-btn icon>
+                <v-icon @click="deleteComment(comment.id, index)">mdi-delete-circle</v-icon>
+              </v-btn>
+            </v-list-item-icon>
+
+          </v-list-item>
+
+          <v-divider></v-divider>
+
+        </template>
+      </v-list>
+    </v-card>
+
+    <v-row>
+        <v-col>
+          <v-form
+            
+            class="pa-4 pt-6"
+          >
+            <v-textarea
+              v-model="input"
+              auto-grow
+              filled
+              color="deep-purple"
+              label="Message"
+              rows="1"
+            ></v-textarea>
+          </v-form>
+        
+          <v-btn
+            
+            class="white--text"
+            color="deep-purple accent-4"
+            depressed
+            @click="addComment"
+          >Submit</v-btn>
+        </v-col>
+    </v-row>
+    </div>
+    
+    <!-- 未ログイン時にはログインボタンを表示 -->
+    <div class="google-auth" v-else key="logout">
+    <v-btn depressed large color="primary" @click="googleLogin">googleでログイン</v-btn>
+    </div>
+</v-container>
+</v-app>
+</template>
+
+
+<script>
+import firebase from "~/plugins/firebase.js"
+
+const db = firebase.firestore();
+
+export default {
+  data() {
+    return {
+      dialog: false,
+      comments: [],
+      user: {},  // ユーザー情報
+      chat: [],  // 取得したメッセージを入れる配列
+      input: ''  // 入力したメッセージ
+    }
+  },
+  async asyncData() {
+      //const querySnapshot = await db.collection('chat').orderBy("createdAt", "asc").get()
+      //const chatArray = querySnapshot.docs.map(elem => elem.data()) 
+
+      let chatArray = [];
+      await db.collection('chat').orderBy("createdAt", "asc")
+                .onSnapshot(querySnapshot => {         
+                              querySnapshot.docChanges().forEach(change => {
+                                if (change.type === 'added') {
+                                    chatArray.push(change.doc.data());
+                                }
+                                if (change.type === 'removed') {
+                                    chatArray.splice(1,1);
+                                } 
+                              });
+                            });
+      return {
+        // firestoreのcommentsコレクションを参照
+        "comments": chatArray
+      } 
+  },
+  methods: {
+    googleLogin: function () {
+      //firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+      firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    },
+    logout: function () {
+      this.dialog=false
+      firebase.auth().signOut()
+    },
+    addComment: function() {
+      const now = new Date();
+      const YYYY = now.getFullYear();
+      const MM = now.getMonth()+1;
+      const DD = now.getDate();
+      const hh = now.getHours();
+      const mm = now.getMinutes();
+      const ss = now.getSeconds();
+        // コメントをFirestoreへ登録
+      db.collection('chat').doc("msg" + now.getTime()).set({
+          content: this.input,
+          user: this.user.displayName,
+          email: this.user.email,
+          img: 'https://1.bp.blogspot.com/-4-ktVUOZ0Mo/VbnQ8-QED8I/AAAAAAAAwKA/mj58a2ZqwAU/s50/unchi_character.png',
+          createdAt: YYYY + "/" + MM + "/" + DD + " " + hh + ":" + mm + ":" + ss,
+          id: "msg" + now.getTime()
+        })
+      this.input=''
+    },
+    deleteComment: function(id, index) {
+      db.collection('chat').doc(id).delete()
+    },
+  },
+  created() {
+    firebase.auth().onAuthStateChanged(user => {
+    // ログイン状態ならuserが取得できる
+    this.user = user ? user : {}
+    })
+  }
+}
+</script>

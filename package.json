@@ -1,0 +1,29 @@
+{
+  "name": "yakamazu-blog",
+  "version": "1.0.0",
+  "description": "My dandy Nuxt.js project",
+  "author": "yakamazu",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/font-awesome": "^1.0.4",
+    "firebase": "^7.0.0",
+    "firebase-tools": "^7.4.0",
+    "fs": "0.0.1-security",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.0.0",
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-jest": "^24.1.0",
+    "jest": "^24.1.0",
+    "vue-jest": "^4.0.0-0"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "fileMap": {
+    "contents/json/2019-10-01_test.json": {
+      "title": "テスト記事1",
+      "description": "テスト記事1です",
+      "tags": [
+        "タグ1"
+      ],
+      "category": "その他",
+      "created_at": "2019-02-16 00:08:00",
+      "updated_at": "2019-02-16 00:00:00",
+      "preview": "内容\ntest\n\n内容２\ntest2",
+      "dir": "contents/json",
+      "base": "2019-10-01_test.json",
+      "ext": ".json",
+      "sourceBase": "2019-10-01_test.md",
+      "sourceExt": ".md"
+    },
+    "contents/json/2019-10-02_test2.json": {
+      "title": "テスト記事2",
+      "description": "テスト記事2です",
+      "tags": [
+        "タグ2"
+      ],
+      "category": "その他2",
+      "created_at": "2019-02-17 00:08:00",
+      "updated_at": "2019-02-17 00:00:00",
+      "preview": "内容\niuiuiuiuiuiu\n\n内容２\noipopopopopopopopo\n\nnayou\niuiowieowi3u4iortwj",
+      "dir": "contents/json",
+      "base": "2019-10-02_test2.json",
+      "ext": ".json",
+      "sourceBase": "2019-10-02_test2.md",
+      "sourceExt": ".md"
+    }
+  },
+  "sourceFileArray": [
+    "contents/md/2019-10-01_test.md",
+    "contents/md/2019-10-02_test2.md"
+  ]
+}
