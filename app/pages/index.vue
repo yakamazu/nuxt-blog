@@ -1,40 +1,39 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
+<v-app>
+<v-container >
+  <v-row dense>
+    <v-col
+      v-for="item in json.fileMap" :key="item.title"
+      cols=6
     >
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
+          <v-card
+             class="mx-auto"
+             outlined
+          >
+            <v-list-item three-line>
+              <v-list-item-content>
+                <div class="overline mb-4">{{ item.created_at.split(' ')[0] }}</div>
+                <div class="overline mb-4">{{ item.category }}</div>
+                <n-link v-bind:to="`/posts/` + `${item.base}`.split('_')[0] + '/' + `${item.base}`.split('_')[1].split('.')[0]">
+                  <v-list-item-title class="headline mb-1">{{ item.title }}</v-list-item-title>
+                  <v-list-item-subtitle>{{ item.preview }}</v-list-item-subtitle>
+                </n-link>
+              </v-list-item-content>
+            </v-list-item>
 
-      <ul v-for="item in json.fileMap" :key="item.title">
-          <li>
-            <n-link v-bind:to="`/posts/` + `${item.base}`.split('_')[0] + '/' + `${item.base}`.split('_')[1].split('.')[0]">{{ item.title }} : {{ item.base.split("_")[0] }}</n-link>
-          </li>
-      </ul>
-
-      <p>{{$store.state.test}}</p>
-      
-    </v-flex>
-  </v-layout>
+            <v-card-actions>
+              <v-btn text v-for="tag in item.tags" :key="item.title">{{ tag }}</v-btn>
+            </v-card-actions>
+            
+          </v-card>
+    </v-col>
+  </v-row> 
+</v-container>
+</v-app>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  },
   asyncData () {
     return {json: require('../contents/summary.json')}
   },
