@@ -20,7 +20,6 @@
           </li>
       </ul>
 
-      <p>aaa</p>
       <p>{{$store.state.test}}</p>
       
     </v-flex>

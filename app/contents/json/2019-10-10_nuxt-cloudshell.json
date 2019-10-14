@@ -1,0 +1,18 @@
+{
+  "created_at": "2019-10-10 23:10:00",
+  "updated_at": "2019-10-10 23:10:00",
+  "title": "cloud shell でのNuxt.jsの環境を作る",
+  "tags": [
+    "Nuxt.js",
+    "GCP"
+  ],
+  "category": "programming",
+  "bodyContent": "デフォルトではGCPのcloud shell環境にNuxt.js環境がないみたいなので、\ncloud shellのDockerfileに必要事項追記し、プロジェクト作成する\n\n# cloud shellの環境の編集方法\n[この記事](https://qiita.com/ptpt-free/items/92e8e8c446183ca314d2)を参照\n\n# Dockerfileへの追記\n以下をcloud shell環境用のDockerfileに追加し、\nコミット、SourceRepositoriesへpush\n\n```\nRUN npm install -g vue-cli\n```\n\n# プロジェクトの作成\n任意のディレクトリで以下実行\n\n```\n$ vue init nuxt/starter\n```\n\n以下のように色々聞かれるので設定していくと必要なファイル類一式が作成される\n\n```\n? Generate project in current directory? \n? Project name \n? Project description\n? Author \n\n   vue-cli · Generated \"test\".\n```\n\n# 関連パッケージのインストール\nプロジェクトディレクトリで以下実行\n\n```\nnpm install\n```\n\n# ローカル開発機の立ち上げ\nプロジェクトディレクトリで以下実行\n\n```\nnpm run dev\n```\n\nポート3000でサーバが立ち上がる",
+  "bodyHtml": "<p>デフォルトではGCPのcloud shell環境にNuxt.js環境がないみたいなので、\ncloud shellのDockerfileに必要事項追記し、プロジェクト作成する</p>\n<h1>cloud shellの環境の編集方法</h1>\n<p><a href=\"https://qiita.com/ptpt-free/items/92e8e8c446183ca314d2\">この記事</a>を参照</p>\n<h1>Dockerfileへの追記</h1>\n<p>以下をcloud shell環境用のDockerfileに追加し、\nコミット、SourceRepositoriesへpush</p>\n<pre><code>RUN npm install -g vue-cli\n</code></pre>\n<h1>プロジェクトの作成</h1>\n<p>任意のディレクトリで以下実行</p>\n<pre><code>$ vue init nuxt/starter\n</code></pre>\n<p>以下のように色々聞かれるので設定していくと必要なファイル類一式が作成される</p>\n<pre><code>? Generate project in current directory? \n? Project name \n? Project description\n? Author \n\n   vue-cli · Generated 'test'.\n</code></pre>\n<h1>関連パッケージのインストール</h1>\n<p>プロジェクトディレクトリで以下実行</p>\n<pre><code>npm install\n</code></pre>\n<h1>ローカル開発機の立ち上げ</h1>\n<p>プロジェクトディレクトリで以下実行</p>\n<pre><code>npm run dev\n</code></pre>\n<p>ポート3000でサーバが立ち上がる</p>\n",
+  "preview": "デフォルトではGCPのcloud shell環境にNuxt.js環境がないみたいなので、\ncloud shellのDockerfileに必要事項追記し、プロジェクト作成する\n\ncloud shellの環境の編集方法\nこの記事を参照\n\nDockerfileへの追記\n以下をcloud",
+  "dir": "contents/json",
+  "base": "2019-10-10_nuxt-cloudshell.json",
+  "ext": ".json",
+  "sourceBase": "2019-10-10_nuxt-cloudshell.md",
+  "sourceExt": ".md"
+}

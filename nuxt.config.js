@@ -1,8 +1,25 @@
 import colors from 'vuetify/es5/util/colors'
 
+const entries = require('./app/contents/summary.json');
+
 export default {
   mode: 'universal',
   srcDir: 'app/',
+  generate: {
+    routes() {
+        let blogRoutes = [];
+        const posts = '/posts/';
+        const srash = '/';
+
+        for(let i in entries.fileMap) {
+          let blogDate = entries['fileMap'][i]['base'].split('_')[0];
+          let blogTitle = entries['fileMap'][i]['base'].split('_')[1].split('.')[0];
+          blogRoutes.push(posts + blogDate + srash + blogTitle);
+        }
+
+        return blogRoutes;
+    }
+  },
   /*
   ** Headers of the page
   */
@@ -32,6 +49,7 @@ export default {
   */
   plugins: [
       '~/plugins/firebase',
+      '~/plugins/disqus',
   ],
   /*
   ** Nuxt.js dev-modules
