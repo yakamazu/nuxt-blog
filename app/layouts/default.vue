@@ -7,7 +7,7 @@
       dark
       dense app
     >
-      <v-toolbar-title>yakamazu blog</v-toolbar-title>
+      <v-toolbar-title><a class="title" href="/"　style="text-decoration: none; color: white;">yakamazu blog</a></v-toolbar-title>
 
       <div class="flex-grow-1"></div>
 
@@ -63,9 +63,16 @@
     data: () => ({
       icons: [
         {"icon":"fa-twitter", "url":"https://twitter.com/yakamazu2929"},
-        {"icon":"fa-linkedin", "url":"https://www.linkedin.com/in/kazuki-yamagata-93219759"},
+        //{"icon":"fa-linkedin", "url":"https://www.linkedin.com/in/kazuki-yamagata-93219759"},
         {"icon":"fa-github", "url":"https://github.com/yakamazu"},
       ],
     }),
   }
 </script>
+
+<style>
+a .title{
+    color: white;
+    text-decoration: none;
+}
+</style>
