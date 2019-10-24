@@ -4,10 +4,6 @@ secrets:
       FIREBASE_TOKEN: CiQAM8BOv5N1wL8NZjk23HlVC8MC+VLclz+P9bYy4OPBLco+xHMSkAEAtluqk9CN5BCjylno99dNc4w/5FMJAu/beIuE5ARky4qCZ1IYsRnj83Z5/Jd8ynL2dUT26CZ6b3o+Otoz9L7seHQ2Ky2g1S1fyBd9PQj3v9mhpZiIRXf6OC6WvHA4cxTxHG5zpfbGmu8xaiBft+e4puEspr7eHha31xBOR58HGpAYthVaEpPEVZP3/ebuVEM=
 
 steps:
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'generate']
   - name: 'gcr.io/$_PROJECT_ID/firebase'
     args: ['deploy']
     secretEnv: ['FIREBASE_TOKEN']
