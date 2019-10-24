@@ -30,10 +30,27 @@
       "ext": ".json",
       "sourceBase": "2019-10-11_fukuoka-tochi.md",
       "sourceExt": ".md"
+    },
+    "contents/json/2019-10-24_nuxt-firebase.json": {
+      "created_at": "2019-10-24 22:10:00",
+      "updated_at": "2019-10-24 22:10:00",
+      "title": "Nuxt.jsでfirebaseを使えるように設定する",
+      "tags": [
+        "Nuxt.js",
+        "Firebase"
+      ],
+      "category": "programming",
+      "preview": "Nuxt.jsでfirebaseを使えるように設定する。\n\n諸々インストール\n\nfirebase\n\nnpm install --save firebase\n\nfirebase CLI\n\nnpm install --save firebase-tools\n\n環境変数使用ツール\n\nnpm install --save",
+      "dir": "contents/json",
+      "base": "2019-10-24_nuxt-firebase.json",
+      "ext": ".json",
+      "sourceBase": "2019-10-24_nuxt-firebase.md",
+      "sourceExt": ".md"
     }
   },
   "sourceFileArray": [
     "contents/md/2019-10-10_nuxt-cloudshell.md",
-    "contents/md/2019-10-11_fukuoka-tochi.md"
+    "contents/md/2019-10-11_fukuoka-tochi.md",
+    "contents/md/2019-10-24_nuxt-firebase.md"
   ]
 }

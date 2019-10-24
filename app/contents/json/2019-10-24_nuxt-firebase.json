@@ -1,0 +1,18 @@
+{
+  "created_at": "2019-10-24 22:10:00",
+  "updated_at": "2019-10-24 22:10:00",
+  "title": "Nuxt.jsでfirebaseを使えるように設定する",
+  "tags": [
+    "Nuxt.js",
+    "Firebase"
+  ],
+  "category": "programming",
+  "bodyContent": "Nuxt.jsでfirebaseを使えるように設定する。\n\n# 諸々インストール\n\nfirebase\n\n```\nnpm install --save firebase\n```\n\n\nfirebase CLI\n\n```\nnpm install --save firebase-tools\n```\n\n環境変数使用ツール\n\n```\nnpm install --save @nuxtjs/dotenv\n```\n\n\n#  firebaseにログイン\n\n```\nfirebase login\n```\n\n\n# firebaseの初期化\nNuxtプロジェクトのトップで以下実行\n\n```\nfirebase init\n```\n\n色々聞かれるので選択していく\n\n\n# firebaseへの接続情報を.envで管理する\n\n[参考ページ](https://chaika.hatenablog.com/entry/2019/01/21/113000)\n\n上記の参考ページに従っていけばできる\n\n\n## 注意点\n.env ファイルはソースディレクトリに作成する！",
+  "bodyHtml": "<p>Nuxt.jsでfirebaseを使えるように設定する。</p>\n<h1>諸々インストール</h1>\n<p>firebase</p>\n<pre><code>npm install --save firebase\n</code></pre>\n<p>firebase CLI</p>\n<pre><code>npm install --save firebase-tools\n</code></pre>\n<p>環境変数使用ツール</p>\n<pre><code>npm install --save @nuxtjs/dotenv\n</code></pre>\n<h1>firebaseにログイン</h1>\n<pre><code>firebase login\n</code></pre>\n<h1>firebaseの初期化</h1>\n<p>Nuxtプロジェクトのトップで以下実行</p>\n<pre><code>firebase init\n</code></pre>\n<p>色々聞かれるので選択していく</p>\n<h1>firebaseへの接続情報を.envで管理する</h1>\n<p><a href=\"https://chaika.hatenablog.com/entry/2019/01/21/113000\">参考ページ</a></p>\n<p>上記の参考ページに従っていけばできる</p>\n<h2>注意点</h2>\n<p>.env ファイルはソースディレクトリに作成する！</p>\n",
+  "preview": "Nuxt.jsでfirebaseを使えるように設定する。\n\n諸々インストール\n\nfirebase\n\nnpm install --save firebase\n\nfirebase CLI\n\nnpm install --save firebase-tools\n\n環境変数使用ツール\n\nnpm install --save",
+  "dir": "contents/json",
+  "base": "2019-10-24_nuxt-firebase.json",
+  "ext": ".json",
+  "sourceBase": "2019-10-24_nuxt-firebase.md",
+  "sourceExt": ".md"
+}
