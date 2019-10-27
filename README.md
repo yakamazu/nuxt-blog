@@ -22,4 +22,5 @@ $ npm run generate
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 # create blog json
+cd app
 processmd contents/md/*.md --preview 160 --stdout --outputDir contents/json > contents/summary.json &&  sed -i -e 's/&gt;/>/g' contents/json/* &&  sed -i -e 's/&lt;/</g' contents/json/* && sed -i -e "s/&quot;/'/g" contents/json/*

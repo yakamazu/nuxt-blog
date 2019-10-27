@@ -63,6 +63,13 @@ export default {
   modules: [
     '@nuxtjs/font-awesome',
     '@nuxtjs/dotenv',
+    [
+      '@nuxtjs/google-gtag',
+      {
+        id: 'UA-135977737-1', //あなたのGoogleアナリティクスのプロパティID
+        debug: true //本番環境以外でもGAを有効にしたい場合はtrueに。
+      }
+    ],
   ],
   /*
   ** vuetify module configuration

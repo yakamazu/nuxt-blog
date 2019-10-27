@@ -46,11 +46,28 @@
       "ext": ".json",
       "sourceBase": "2019-10-24_nuxt-firebase.md",
       "sourceExt": ".md"
+    },
+    "contents/json/2019-10-27_nuxt-ga.json": {
+      "created_at": "2019-10-27 23:10:00",
+      "updated_at": "2019-10-27 23:10:00",
+      "title": "Nuxt.jsでGoogle Analyticsを使えるように設定する",
+      "tags": [
+        "Nuxt.js",
+        "Google Analytics"
+      ],
+      "category": "programming",
+      "preview": "nuxt.js で作ったブログにGoogle Analyticsを導入する。\n\n方法①公式\n\n参考\n\nplugins/ga.js を作成する\n\nexport default ({ app }) => {\n  if (process.env.NODE_ENV !== 'production') return",
+      "dir": "contents/json",
+      "base": "2019-10-27_nuxt-ga.json",
+      "ext": ".json",
+      "sourceBase": "2019-10-27_nuxt-ga.md",
+      "sourceExt": ".md"
     }
   },
   "sourceFileArray": [
     "contents/md/2019-10-10_nuxt-cloudshell.md",
     "contents/md/2019-10-11_fukuoka-tochi.md",
-    "contents/md/2019-10-24_nuxt-firebase.md"
+    "contents/md/2019-10-24_nuxt-firebase.md",
+    "contents/md/2019-10-27_nuxt-ga.md"
   ]
 }
