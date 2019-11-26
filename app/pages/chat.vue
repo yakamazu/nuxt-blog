@@ -100,7 +100,28 @@
     
     <!-- 未ログイン時にはログインボタンを表示 -->
     <div class="google-auth" v-else key="logout">
-    <v-btn depressed large color="primary" @click="googleLogin">googleでログイン</v-btn>
+    <v-container>
+      <v-layout row class="text-xs-center" justify-center>
+        <v-flex xs4 class="grey lighten-4"> 
+          <v-card-actions>
+              <v-btn primary large block color="primary" @click="googleLogin">GoogleでLogin</v-btn>
+          </v-card-actions>
+          <br>
+          <v-card flat>
+            <v-card-title primary-title>
+              <h4>メールアドレスでLogin（匿名用）</h4>
+            </v-card-title>
+            <v-form>
+              <v-text-field v-model="login_mail" prepend-icon="mdi-account" name="Username" label="Username"></v-text-field>
+              <v-text-field v-model="login_pass" prepend-icon="mdi-lock" name="Password" label="Password" type="password"></v-text-field>
+              <v-card-actions>
+                <v-btn primary large block @click="mailLogin">Login</v-btn>
+              </v-card-actions>
+            </v-form>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
     </div>
 </v-container>
 </v-app>
@@ -116,7 +137,9 @@ export default {
   data() {
     return {
       dialog: false,
-      input: ''  // 入力したメッセージ
+      input: '',  // 入力したメッセージ
+      login_mail: 'yakamazu@example.com',
+      login_pass: 'yakamazu',
     }
   },
   asyncData({ store }) {
@@ -127,6 +150,9 @@ export default {
     googleLogin: function () {
       //firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
       firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    },
+    mailLogin: function() {
+      firebase.auth().signInWithEmailAndPassword(this.login_mail, this.login_pass)
     },
     logout: function () {
       this.dialog=false
